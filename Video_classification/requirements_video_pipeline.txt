@@ -1,0 +1,11 @@
+torch>=2.5.0
+torchvision>=0.20.0
+av>=12.0.0
+PyYAML>=6.0
+# Optional for experimental VLM adapters:
+# transformers>=4.45.0
+# Optional for MMAction2 adapter:
+# openmim
+# mmengine
+# mmcv>=2.0.0
+# mmaction2
