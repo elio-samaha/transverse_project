@@ -1,0 +1,138 @@
+{
+  "normal_source_dir": "/home/elio_samaha/X/transverse_project_idemia/Normal_Videos_for_Event_Recognition/Normal_Videos_for_Event_Recognition",
+  "taxonomy_json": "/home/elio_samaha/X/transverse_project_idemia/manifests/ucfcrime_taxonomy.json",
+  "normal_count": 24,
+  "multiclass_classes": [
+    "normal",
+    "abuse",
+    "arrest",
+    "arson",
+    "assault",
+    "burglary",
+    "explosion",
+    "fighting",
+    "road_accidents",
+    "robbery",
+    "shooting",
+    "shoplifting",
+    "stealing",
+    "vandalism"
+  ],
+  "multilabel_classes": [
+    "normal",
+    "violent",
+    "abuse",
+    "arrest",
+    "arson",
+    "assault",
+    "burglary",
+    "explosion",
+    "fighting",
+    "road_accidents",
+    "robbery",
+    "shooting",
+    "shoplifting",
+    "stealing",
+    "vandalism"
+  ],
+  "binary_manifest": "/home/elio_samaha/X/transverse_project_idemia/manifests/bootstrap_binary_manifest.csv",
+  "multiclass_manifest": "/home/elio_samaha/X/transverse_project_idemia/manifests/bootstrap_multiclass_manifest.csv",
+  "multilabel_manifest": "/home/elio_samaha/X/transverse_project_idemia/manifests/bootstrap_multilabel_manifest.csv",
+  "binary_summary": {
+    "normal": {
+      "test": 3,
+      "train": 17,
+      "val": 4
+    },
+    "violent": {
+      "test": 1,
+      "train": 1,
+      "val": 1
+    }
+  },
+  "multiclass_summary": {
+    "abuse": {
+      "test": 1,
+      "train": 1,
+      "val": 1
+    },
+    "arrest": {
+      "test": 1,
+      "train": 1,
+      "val": 1
+    },
+    "arson": {
+      "test": 1,
+      "train": 1,
+      "val": 1
+    },
+    "assault": {
+      "test": 1,
+      "train": 1,
+      "val": 1
+    },
+    "burglary": {
+      "test": 1,
+      "train": 1,
+      "val": 1
+    },
+    "explosion": {
+      "test": 1,
+      "train": 1,
+      "val": 1
+    },
+    "fighting": {
+      "test": 1,
+      "train": 1,
+      "val": 1
+    },
+    "normal": {
+      "test": 3,
+      "train": 17,
+      "val": 4
+    },
+    "road_accidents": {
+      "test": 1,
+      "train": 1,
+      "val": 1
+    },
+    "robbery": {
+      "test": 1,
+      "train": 1,
+      "val": 1
+    },
+    "shooting": {
+      "test": 1,
+      "train": 1,
+      "val": 1
+    },
+    "shoplifting": {
+      "test": 1,
+      "train": 1,
+      "val": 1
+    },
+    "stealing": {
+      "test": 1,
+      "train": 1,
+      "val": 1
+    },
+    "vandalism": {
+      "test": 1,
+      "train": 1,
+      "val": 1
+    }
+  },
+  "multilabel_summary": {
+    "normal": {
+      "test": 3,
+      "train": 17,
+      "val": 4
+    },
+    "violent": {
+      "test": 13,
+      "train": 13,
+      "val": 13
+    }
+  },
+  "synthetic_rows_note": "Synthetic rows reuse normal video files with fake labels for pipeline debugging only."
+}
