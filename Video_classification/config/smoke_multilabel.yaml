@@ -1,0 +1,48 @@
+seed: 42
+task_type: multilabel
+manifest_path: manifests/smoke_multilabel.csv
+class_names:
+  - normal
+  - violent
+  - robbery
+  - fight
+  - murder
+
+splits:
+  train: train
+  val: val
+  test: test
+
+data:
+  num_frames: 8
+  image_size: 112
+  clip_duration_sec: 1.5
+  random_clip_for_train: true
+
+model:
+  name: r3d_18
+  pretrained: false
+  dropout: 0.2
+  freeze_backbone: false
+
+training:
+  epochs: 1
+  batch_size: 1
+  num_workers: 1
+  pin_memory: true
+  amp: true
+  grad_clip_norm: 1.0
+  log_every: 2
+  multilabel_threshold: 0.5
+
+optimizer:
+  name: adamw
+  lr: 0.0001
+  weight_decay: 0.01
+
+scheduler:
+  name: none
+
+checkpoint:
+  output_dir: runs/smoke_multilabel
+  resume_from: null

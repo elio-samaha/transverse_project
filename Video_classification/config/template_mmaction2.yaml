@@ -1,0 +1,52 @@
+seed: 42
+task_type: multiclass
+manifest_path: manifests/bootstrap_multiclass_manifest.csv
+class_names_file: manifests/ucfcrime_taxonomy.json
+class_names_key: multiclass_classes
+
+splits:
+  train: train
+  val: val
+  test: test
+
+data:
+  num_frames: 16
+  image_size: 224
+  clip_duration_sec: 2.0
+  random_clip_for_train: true
+
+model:
+  name: mmaction2
+  pretrained: true
+  dropout: 0.5
+  freeze_backbone: false
+  # Example config path inside cloned mmaction2 repo:
+  # mmaction_config_path: /content/mmaction2/configs/recognition/slowonly/slowonly_r50_8xb16-4x16x1-256e_kinetics400-rgb.py
+  mmaction_config_path: /content/mmaction2/configs/recognition/slowonly/slowonly_r50_8xb16-4x16x1-256e_kinetics400-rgb.py
+  # Optional pretrained checkpoint path (.pth). Leave null to train from scratch.
+  mmaction_checkpoint_path: null
+  mmaction_load_strict: false
+
+training:
+  epochs: 10
+  batch_size: 2
+  num_workers: 2
+  pin_memory: true
+  amp: true
+  grad_clip_norm: 1.0
+  log_every: 20
+  multilabel_threshold: 0.5
+
+optimizer:
+  name: adamw
+  lr: 0.0001
+  weight_decay: 0.01
+
+scheduler:
+  name: cosine
+  t_max: 10
+  eta_min: 0.000001
+
+checkpoint:
+  output_dir: runs/mmaction2_multiclass
+  resume_from: null

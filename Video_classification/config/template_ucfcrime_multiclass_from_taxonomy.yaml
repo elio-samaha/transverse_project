@@ -1,0 +1,46 @@
+seed: 42
+task_type: multiclass
+manifest_path: manifests/bootstrap_multiclass_manifest.csv
+class_names_file: manifests/ucfcrime_taxonomy.json
+class_names_key: multiclass_classes
+
+splits:
+  train: train
+  val: val
+  test: test
+
+data:
+  num_frames: 16
+  image_size: 112
+  clip_duration_sec: 2.0
+  random_clip_for_train: true
+
+model:
+  name: r3d_18
+  pretrained: true
+  dropout: 0.2
+  freeze_backbone: false
+
+training:
+  epochs: 10
+  batch_size: 2
+  num_workers: 2
+  pin_memory: true
+  amp: true
+  grad_clip_norm: 1.0
+  log_every: 20
+  multilabel_threshold: 0.5
+
+optimizer:
+  name: adamw
+  lr: 0.0001
+  weight_decay: 0.01
+
+scheduler:
+  name: cosine
+  t_max: 10
+  eta_min: 0.000001
+
+checkpoint:
+  output_dir: runs/ucfcrime_multiclass_r3d18
+  resume_from: null

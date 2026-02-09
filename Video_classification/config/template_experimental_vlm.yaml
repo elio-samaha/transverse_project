@@ -1,0 +1,52 @@
+seed: 42
+task_type: binary
+manifest_path: manifests/binary_manifest.csv
+class_names:
+  - normal
+  - violent
+
+splits:
+  train: train
+  val: val
+  test: test
+
+data:
+  num_frames: 8
+  image_size: 224
+  clip_duration_sec: 2.0
+  random_clip_for_train: true
+
+model:
+  # Experimental options:
+  # - internvideo2_5
+  # - videollama3
+  # - internvl
+  # - hf_backbone
+  name: internvideo2_5
+  hf_model_id: OpenGVLab/InternVideo2_5_Chat_8B
+  hf_trust_remote_code: true
+  pretrained: true
+  dropout: 0.2
+  freeze_backbone: true
+
+training:
+  epochs: 5
+  batch_size: 1
+  num_workers: 2
+  pin_memory: true
+  amp: true
+  grad_clip_norm: 1.0
+  log_every: 10
+  multilabel_threshold: 0.5
+
+optimizer:
+  name: adamw
+  lr: 0.0001
+  weight_decay: 0.01
+
+scheduler:
+  name: none
+
+checkpoint:
+  output_dir: runs/experimental_vlm
+  resume_from: null

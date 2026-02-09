@@ -1,0 +1,49 @@
+seed: 42
+task_type: binary
+manifest_path: manifests/binary_manifest.csv
+class_names:
+  - normal
+  - violent
+
+splits:
+  train: train
+  val: val
+  test: test
+
+data:
+  num_frames: 16
+  image_size: 112
+  clip_duration_sec: 2.0
+  random_clip_for_train: true
+
+model:
+  # Recommended stable local/cloud baseline.
+  # Options: r3d_18, mc3_18, r2plus1d_18
+  name: r3d_18
+  pretrained: true
+  dropout: 0.2
+  freeze_backbone: false
+
+training:
+  epochs: 15
+  batch_size: 4
+  num_workers: 4
+  pin_memory: true
+  amp: true
+  grad_clip_norm: 1.0
+  log_every: 20
+  multilabel_threshold: 0.5
+
+optimizer:
+  name: adamw
+  lr: 0.0001
+  weight_decay: 0.01
+
+scheduler:
+  name: cosine
+  t_max: 15
+  eta_min: 0.000001
+
+checkpoint:
+  output_dir: runs/binary_r3d18
+  resume_from: null
