@@ -4,7 +4,7 @@ set -euo pipefail
 python -m pip install --upgrade pip setuptools wheel
 
 # Core pipeline deps
-python -m pip install av PyYAML
+python -m pip install av PyYAML matplotlib
 
 # Optional experimental VLM backbones
 python -m pip install transformers accelerate
